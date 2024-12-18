@@ -1,0 +1,3 @@
+langchain-openai
+azureml-fsspec
+azure-ai-generative
