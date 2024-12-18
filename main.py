@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage
@@ -9,6 +10,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI()
+
+# Allow CORS for all origins (adjust as needed)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Adjust this to the specific origins you want to allow
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Azure OpenAI configuration
 azure_openai_deployment_name = os.getenv("AZURE_DEPLOYMENT_NAME")  # Your Azure model deployment name
