@@ -3,4 +3,4 @@ azureml-fsspec
 azure-ai-generative
 fastapi
 uvicorn
-dotenv
+python-dotenv
